@@ -215,13 +215,12 @@ render_texture error {}.", error);
 		}
 
 		self.texture_id = render_result.ok();
-
 		eprintln!(
 			"\r* Divergent {}: t={} zoom={} pos=({}; {}) threads={}", 
 			self.method_id,
-			match self.generation_time {
-				Option::None => "()",
-				Option::Some(elapsed) => &format!("{:?}", elapsed),
+			&match self.generation_time {
+				Option::None => String::from("()"),
+				Option::Some(elapsed) => format!("{:?}", elapsed),
 			}, 
 			self.zoom,
 			self.position[0],

@@ -210,9 +210,9 @@ render_texture error {}.", error);
 		eprintln!(
 			"* Root {}: t={} zoom={} pos=({}; {}) roots={}", 
 			self.method_id,
-			match self.generation_time {
-				Option::None => "()",
-				Option::Some(elapsed) => &format!("{:?}", elapsed),
+			&match self.generation_time {
+				Option::None => String::from("()"),
+				Option::Some(elapsed) => format!("{:?}", elapsed),
 			}, 
 			self.zoom,
 			self.position[0],
